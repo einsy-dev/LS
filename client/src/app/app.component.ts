@@ -5,9 +5,8 @@ import { RouterOutlet } from '@angular/router';
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  template: `<main class="mx-auto max-w-7xl p-3">
+    <router-outlet />
+  </main>`,
 })
-export class AppComponent {
-  title = 'client';
-}
+export class AppComponent {}
