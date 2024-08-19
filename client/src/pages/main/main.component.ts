@@ -5,7 +5,7 @@ import { CardComponent } from './card/card.component';
   standalone: true,
   imports: [CardComponent],
   template: `
-    <div class="container max-w-2xl m-auto">
+    <div class="container">
       <app-card class="movies aspect-video" [to]="'/movies'">Movies</app-card>
       <app-card class="books aspect-square" [to]="'/books'">Books</app-card>
       <app-card class="music aspect-square" [to]="'/music'">Music</app-card>
