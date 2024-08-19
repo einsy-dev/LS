@@ -5,7 +5,7 @@ import { MovieCardComponent } from './card/movie.card.component';
   standalone: true,
   imports: [MovieCardComponent],
   template: `
-    <section>
+    <section class="container">
       @for (item of items; track $index) {
       <app-movie-card
         to="/movie/{{ item.id }}"
@@ -20,9 +20,41 @@ import { MovieCardComponent } from './card/movie.card.component';
       }
     </section>
   `,
+  styles: `
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: #f2f2f2;
+    gap: 20px;
+    padding: 20px;
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+    }
+  }
+  `,
 })
 export class MoviesComponent {
   @Input() items: any[] = [
+    {
+      id: 1,
+      img: null,
+      name: 'Unstoppable',
+      year: 2012,
+      country: 'USA',
+      genre: 'Action',
+      description: null,
+      rating: '3/5',
+    },
+    {
+      id: 1,
+      img: null,
+      name: 'Unstoppable',
+      year: 2012,
+      country: 'USA',
+      genre: 'Action',
+      description: null,
+      rating: '3/5',
+    },
     {
       id: 1,
       img: null,

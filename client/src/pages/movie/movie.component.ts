@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import videojs from 'video.js';
-import { PlayerComponent } from './player/player.component';
+import { PlayerComponent } from '@widgets';
 
 @Component({
   selector: 'app-movie',
@@ -11,12 +10,18 @@ import { PlayerComponent } from './player/player.component';
       <app-player
         class=" w-screen"
         [options]="{
+          controls: true,
+          muted: false,
           loop: true,
           autoplay: false,
-          sources: [{ src: '/test.mp4', type: 'video/mp4' }]
+          sources: [{ src: 'http://localhost:3000/movie/test', type: 'video/mp4' }]
         }"
       ></app-player>
     </div>
   `,
 })
-export class MovieComponent {}
+export class MovieComponent {
+  ngOnInit() {
+
+  }
+}

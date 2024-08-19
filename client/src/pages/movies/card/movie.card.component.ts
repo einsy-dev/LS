@@ -7,7 +7,7 @@ import { RouterLink } from '@angular/router';
   imports: [RouterLink],
   template: `
     <article
-      class="w-full h-full border-solid border-2 border-sky-500 rounded flex relative"
+      class="border-solid border-2 border-sky-500 rounded flex relative"
       [routerLink]="to"
     >
       <div class="aspect-2/3 flex items-center bg-[#E1EAF1]">
