@@ -21,26 +21,12 @@ func Router(app *gin.Engine, usersCollection *mongo.Collection) {
 			ctx.JSON(500, gin.H{"error": err.Error()})
 			return
 		}
-		c, err := usersCollection.Find(context.TODO(), bson.M{"$or": []bson.M{
-			{"email": body.Email},
-			{"username": body.Username},
-		}})
+		user, err := InsertUser(ctx, body, usersCollection)
 		if err != nil {
 			ctx.JSON(500, gin.H{"error": err.Error()})
 			return
 		}
-		var result = []User{}
-		c.All(context.TODO(), &result)
-		if len(result) > 0 {
-			ctx.JSON(200, gin.H{"error": "user already exists"})
-			return
-		}
-		doc, err := usersCollection.InsertOne(context.TODO(), body)
-		if err != nil {
-			ctx.JSON(500, gin.H{"error": err.Error()})
-			return
-		}
-		ctx.JSON(200, gin.H{"data": doc})
+		ctx.JSON(200, gin.H{"data": user})
 
 	})
 	app.GET("/users", func(ctx *gin.Context) {
