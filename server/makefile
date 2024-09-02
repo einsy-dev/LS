@@ -1,0 +1,2 @@
+start:
+	gow run ./cmd

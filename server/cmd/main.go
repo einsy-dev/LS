@@ -22,8 +22,8 @@ func main() {
 
 	clientOptions := options.Client().ApplyURI(os.Getenv("MONGO_URL")) // MongoDB client options
 	client, err := mongo.Connect(context.TODO(), clientOptions)        // Connect to MongoDB
-	client.Ping(context.TODO(), nil)                                   // Ping MongoDB
 	db := client.Database(os.Getenv("DATABASE"))                       // Select database
+	client.Ping(context.TODO(), nil)                                   // Ping MongoDB
 
 	if err != nil {
 		log.Fatal("Error connecting to MongoDB", err)

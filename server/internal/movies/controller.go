@@ -1,7 +1,8 @@
 package movies
 
 import (
-	"context"
+	"fmt"
+	"io"
 	"net/http"
 	"os"
 
@@ -23,20 +24,32 @@ type Movie struct {
 func Router(app *gin.Engine, moviesCollection *mongo.Collection) {
 
 	app.POST("/movie", func(ctx *gin.Context) {
-		var movie Movie
-		ctx.Request.Body = http.MaxBytesReader(ctx.Writer, ctx.Request.Body, 1048576)
-		err := ctx.BindJSON(&movie)
+		file, header, err := ctx.Request.FormFile("file")
 		if err != nil {
-			ctx.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+			http.Error(ctx.Writer, err.Error(), http.StatusInternalServerError)
 			return
+		}
+		defer file.Close()
+		fmt.Printf("File name: %s\n", header.Filename)
+		fmt.Printf("File size: %d\n", header.Size)
+		dst, err := os.Create("./public/new.mp4")
+		if err != nil {
+			http.Error(ctx.Writer, err.Error(), http.StatusInternalServerError)
+			return
+		}
+		io.Copy(dst, file) // save file to public", file)
+
+		ctx.Writer.Header().Set("Content-Type", "application/json")
+		movie := &Movie{
+			ID:   "1",
+			Img:  "https://image.tmdb.org/t/p/w300" + "/new.jpg",
+			Name: "New Movie",
+			Year: "2022",
 		}
 
-		_, err = moviesCollection.InsertOne(context.TODO(), movie)
-		if err != nil {
-			ctx.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
-			return
-		}
-		ctx.JSON(http.StatusOK, gin.H{"message": "Movie created"})
+		ctx.Writer.Header().Set("Content-Type", "application/json")
+		ctx.Writer.Header().Set("Access-Control-Allow-Origin", "*")
+		ctx.JSON(200, movie)
 	})
 	app.GET("/movie/:id", func(ctx *gin.Context) {
 		id := ctx.Param("id")
