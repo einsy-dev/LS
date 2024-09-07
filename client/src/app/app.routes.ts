@@ -5,7 +5,7 @@ import {
   MovieComponent,
   BooksComponent,
   MusicComponent,
-  PhotosComponent,
+  GalleryComponent,
   GamesComponent,
   MessengerComponent,
 } from '../pages';
@@ -16,7 +16,7 @@ export const routes: Routes = [
   { path: 'movie/:id', component: MovieComponent },
   { path: 'books', component: BooksComponent },
   { path: 'music', component: MusicComponent },
-  { path: 'photos', component: PhotosComponent },
+  { path: 'gallery', component: GalleryComponent },
   { path: 'games', component: GamesComponent },
   { path: 'messenger', component: MessengerComponent },
   { path: '**', redirectTo: '' },

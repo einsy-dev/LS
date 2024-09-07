@@ -1,15 +1,15 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-photos',
+  selector: 'app-gallery',
   standalone: true,
   imports: [],
   template: `
     <p>
-      photos works!
+      gallery works!
     </p>
   `
 })
-export class PhotosComponent {
+export class GalleryComponent {
 
 }

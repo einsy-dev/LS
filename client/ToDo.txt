@@ -1,0 +1,8 @@
+movie {
+	name
+	year
+	country
+	description
+	language
+	tags
+}

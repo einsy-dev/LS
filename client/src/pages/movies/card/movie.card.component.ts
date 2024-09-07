@@ -7,21 +7,28 @@ import { RouterLink } from '@angular/router';
   imports: [RouterLink],
   template: `
     <article
-      class="border-solid border-2 border-sky-500 rounded flex relative"
+      class="border-solid border-2 border-sky-500 rounded flex relative overflow-hidden"
       [routerLink]="to"
     >
       <div class="aspect-2/3 flex items-center bg-[#E1EAF1]">
-        <img srcset="{{ img }}, assets/err.png" alt="" class="bg-red-500" />
+        <img srcset="{{ img }}, assets/err.png" alt="" />
       </div>
-      <div class="w-full absolute bottom-0 border border-solid text-center">
+      <div
+        class="description w-full absolute bottom-0 border border-solid text-center translate-y-full transition duration-200 py-4"
+      >
         <h3 class="">{{ name }}</h3>
-        <p class="">{{ year }}</p>
-        <p class="">{{ country }}</p>
-        <p class="">{{ genre }}</p>
-        <p class="">{{ description }}</p>
-        <p class="">{{ rating }}</p>
+        <p class="">{{ year }} ( {{ country }} )</p>
       </div>
     </article>
+  `,
+  styles: `
+    article {
+      &:hover {
+        .description {
+          @apply translate-y-0;
+        }
+      }
+    }
   `,
 })
 export class MovieCardComponent {
@@ -30,7 +37,4 @@ export class MovieCardComponent {
   @Input() name?: string;
   @Input() year?: string;
   @Input() country?: string;
-  @Input() genre?: string;
-  @Input() description?: string;
-  @Input() rating?: string;
 }

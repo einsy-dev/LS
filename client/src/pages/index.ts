@@ -6,6 +6,6 @@ export { BooksComponent } from './books/books.component';
 export { MusicComponent } from './music/music.component';
 export { MoviesComponent } from './movies/movies.component';
 export { MovieComponent } from './movie/movie.component';
-export { PhotosComponent } from './photos/photos.component';
+export { GalleryComponent } from './gallery/gallery.component';
 export { ProfileComponent } from './profile/profile.component';
 export { MessengerComponent } from './messenger/messenger.component';
