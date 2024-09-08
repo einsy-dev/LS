@@ -6,9 +6,9 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   standalone: true,
   imports: [CommonModule],
   template: `
-    <nav class="grid gap-5 p-4">
+    <nav class="grid gap-5 pb-4 px-4">
       <div class="w-full flex justify-center">
-        <ul class="flex gap-2 select-none">
+        <ul class="flex">
           <li
             (click)="setPage(page - 1)"
             [class]="page <= 1 ? 'disabled' : null"
@@ -31,8 +31,11 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
     </nav>
   `,
   styles: `
+  ul {
+    @apply select-none rounded-md overflow-hidden
+  }
   li {
-    @apply cursor-pointer px-3 py-1 rounded-md bg-slate-200 hover:bg-slate-300;
+    @apply cursor-pointer px-3 py-1 bg-slate-200 hover:bg-slate-400;
     width: 3rem;
     height: 3rem;
     display: flex;
@@ -43,7 +46,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
     @apply opacity-50 cursor-default hover:bg-slate-200;
   }
   .active {
-    @apply bg-slate-300;
+    @apply bg-slate-400;
   }
   `,
 })
