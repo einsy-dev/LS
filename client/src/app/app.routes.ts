@@ -8,6 +8,7 @@ import {
   GalleryComponent,
   GamesComponent,
   MessengerComponent,
+  ProfileComponent,
 } from '../pages';
 
 export const routes: Routes = [
@@ -19,5 +20,6 @@ export const routes: Routes = [
   { path: 'gallery', component: GalleryComponent },
   { path: 'games', component: GamesComponent },
   { path: 'messenger', component: MessengerComponent },
+  { path: 'profile', component: ProfileComponent },
   { path: '**', redirectTo: '' },
 ];

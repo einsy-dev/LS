@@ -1,10 +1,11 @@
 import { Component, Input } from '@angular/core';
 import { MovieCardComponent } from './card/movie.card.component';
 import { FilterComponent } from './filter/filter.component';
+import { PaginationComponent } from '../../widgets/pagination/pagination.component';
 
 @Component({
   standalone: true,
-  imports: [MovieCardComponent, FilterComponent],
+  imports: [MovieCardComponent, FilterComponent, PaginationComponent],
   template: `
     <app-filter />
     <section class="grid gap-5 p-4">
@@ -19,6 +20,7 @@ import { FilterComponent } from './filter/filter.component';
       />
       }
     </section>
+    <app-pagination />
   `,
   styles: `
   section {

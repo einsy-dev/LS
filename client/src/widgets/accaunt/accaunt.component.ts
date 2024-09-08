@@ -1,17 +1,19 @@
 import { Component, Input } from '@angular/core';
 import { LogoutComponent } from './assets/logout.component';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-accaunt',
   standalone: true,
-  imports: [LogoutComponent],
+  imports: [LogoutComponent, RouterLink],
   template: `
     <div [class]="class + 'accaunt_container flex w-full gap-5'">
       <div class="avatar_container">
         <img
           src="assets/avatar.jpg"
           alt="avatar"
-          class="avatar w-full aspect-square rounded-full"
+          class="avatar w-full aspect-square rounded-full cursor-pointer hover:scale-110 transition duration-200"
+          routerLink="profile"
         />
       </div>
       <div class=" flex flex-col">

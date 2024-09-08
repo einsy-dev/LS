@@ -5,12 +5,15 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   template: `
-    <p>
-      filter works!
-    </p>
+    <div class="p-4 border">
+      <form class="grid grid-cols-4 gap-5">
+        <input type="text" placeholder="Name" />
+        <input type="text" placeholder="Country" />
+        <input type="text" placeholder="Year" />
+        <input type="text" placeholder="Genre" />
+      </form>
+    </div>
   `,
-  styles: ``
+  styles: ``,
 })
-export class FilterComponent {
-
-}
+export class FilterComponent {}
