@@ -6,7 +6,7 @@ import { RouterLink } from '@angular/router';
   standalone: true,
   imports: [RouterLink],
   template: `
-    <header class="border px-5">
+    <header class="px-5">
       <div
         class="container mx-auto flex gap-10 min-h-10 items-center justify-between"
       >
@@ -20,6 +20,14 @@ import { RouterLink } from '@angular/router';
       </div>
     </header>
   `,
-  styles: ``,
+  styles: `
+  header {
+    --bg-color: #231651;
+    --default: white;
+
+    background-color: var(--bg-color);
+    color: var(--default);
+  }
+    `,
 })
 export class HeaderComponent {}

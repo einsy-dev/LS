@@ -5,6 +5,13 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   template: `<footer class="px-5">footer works!</footer> `,
-  styles: ``,
+  styles: `
+  footer {
+    --bg-color: #231651;
+    --default: white;
+
+    background-color: var(--bg-color);
+    color: var(--default);
+  }`,
 })
 export class FooterComponent {}
