@@ -1,9 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=SUSE:wght@100..800&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+* {
+	--font-p: "SUSE", sans-serif;
+	--font-s: 'Inter', sans-serif;
+	font: 1.04rem var(--font-p);
+}
 
-app-root, body {
+app-root,
+body {
 	display: flex;
 	flex-direction: column;
 	min-height: 100vh;

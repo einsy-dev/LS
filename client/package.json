@@ -22,6 +22,7 @@
     "@ngrx/store": "^18.0.2",
     "apollo-angular": "^7.1.1",
     "graphql": "^16",
+    "moment": "^2.30.1",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.10"

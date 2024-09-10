@@ -1,14 +1,15 @@
 import { Component, Input } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { AccauntComponent } from '../accaunt/accaunt.component';
+import { CardComponent } from '@shared/ui/card/card.component';
 
 @Component({
   selector: 'app-sidebar',
   standalone: true,
-  imports: [RouterLink, AccauntComponent],
+  imports: [RouterLink, AccauntComponent, CardComponent],
   template: `
     <app-accaunt />
-    <nav [class]="class + ' w-full'">
+    <nav class="w-full">
       <ul class="w-full">
         <li routerLink="">Home</li>
         <li routerLink="movies">Movies</li>
@@ -19,6 +20,12 @@ import { AccauntComponent } from '../accaunt/accaunt.component';
         <li routerLink="messenger">Messenger</li>
       </ul>
     </nav>
+    <div class="flex flex-col gap-2">
+      <div class="w-full text-center">12/02/2024</div>
+      <app-card title="Uncharted" description="Uncharted movie" />
+      <app-card title="Newline" description="Newline movie" />
+      <app-card title="Unstoppable" description="Unstoppable movie" />
+    </div>
   `,
   styles: `
   ul {
@@ -62,5 +69,5 @@ import { AccauntComponent } from '../accaunt/accaunt.component';
   }`,
 })
 export class SidebarComponent {
-  @Input() class = '';
+  data = { key: '12.02.2022', value: [{}, {}, {}] };
 }

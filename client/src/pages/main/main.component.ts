@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { CardComponent } from './card/card.component';
+import { PostComponent } from '../../shared/ui/post/post.component';
 
 @Component({
   standalone: true,
-  imports: [CardComponent],
-  template: ` <div>main works</div> `,
+  imports: [PostComponent],
+  template: ` <app-post /> `,
   styles: `
     
   `,
