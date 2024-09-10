@@ -68,6 +68,4 @@ import { CardComponent } from '@shared/ui/card/card.component';
     }
   }`,
 })
-export class SidebarComponent {
-  data = { key: '12.02.2022', value: [{}, {}, {}] };
-}
+export class SidebarComponent {}

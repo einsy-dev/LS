@@ -16,7 +16,7 @@ import { FooterComponent } from '../widgets/footer/footer.component';
     FooterComponent,
   ],
   template: `<app-header class="select-none" />
-    <main class="container mx-auto flex gap-5 mt-5">
+    <main class="container mx-auto flex gap-5 my-5">
       <app-sidebar
         class="sidebar_container flex flex-col gap-6 min-w-40 select-none"
       />

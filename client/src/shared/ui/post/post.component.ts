@@ -6,7 +6,7 @@ import moment from 'moment';
   standalone: true,
   imports: [],
   template: `
-    <div class="flex flex-col gap-2 mx-[100px] border p-5 rounded-md shadow-md">
+    <div class="flex flex-col gap-2 border p-5 rounded-md shadow-md">
       <header class="flex">
         <img
           srcset="{{author.img}}, assets/err.png"
@@ -19,8 +19,8 @@ import moment from 'moment';
         </div>
       </header>
       <div class="">
+        <p class="mb-2">{{ description }}</p>
         <img src="{{ img }}" alt="" />
-        <p>{{ description }}</p>
       </div>
     </div>
   `,
