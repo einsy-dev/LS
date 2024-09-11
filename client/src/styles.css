@@ -6,6 +6,7 @@
 * {
 	--font-p: "SUSE", sans-serif;
 	--font-s: 'Inter', sans-serif;
+	--bg-p: #231651;
 	font: 1.04rem var(--font-p);
 }
 
