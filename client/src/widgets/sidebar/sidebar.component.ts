@@ -8,23 +8,27 @@ import { CardComponent } from '@shared/ui/card/card.component';
   standalone: true,
   imports: [RouterLink, AccauntComponent, CardComponent],
   template: `
-    <app-accaunt />
-    <nav class="w-full">
-      <ul class="w-full">
-        <li routerLink="">Home</li>
-        <li routerLink="movies">Movies</li>
-        <li routerLink="books">Books</li>
-        <li routerLink="music">Music</li>
-        <li routerLink="gallery">Gallery</li>
-        <li routerLink="games">Games</li>
-        <li routerLink="messenger">Messenger</li>
-      </ul>
-    </nav>
-    <div class="flex flex-col gap-2">
-      <div class="w-full text-center">12/02/2024</div>
-      <app-card title="Uncharted" description="Uncharted movie" />
-      <app-card title="Newline" description="Newline movie" />
-      <app-card title="Unstoppable" description="Unstoppable movie" />
+    <div class=" flex flex-col gap-6">
+      <app-accaunt />
+      <nav class="w-full">
+        <ul class="w-full">
+          <li routerLink="">Home</li>
+          <li routerLink="movies">Movies</li>
+          <li routerLink="books">Books</li>
+          <li routerLink="music">Music</li>
+          <li routerLink="gallery">Gallery</li>
+          <li routerLink="games">Games</li>
+          <li routerLink="messenger">Messenger</li>
+        </ul>
+      </nav>
+      @if (!modal) {
+      <div class="flex flex-col gap-2">
+        <div class="w-full text-center">12/02/2024</div>
+        <app-card title="Uncharted" description="Uncharted movie" />
+        <app-card title="Newline" description="Newline movie" />
+        <app-card title="Unstoppable" description="Unstoppable movie" />
+      </div>
+      }
     </div>
   `,
   styles: `
@@ -68,4 +72,6 @@ import { CardComponent } from '@shared/ui/card/card.component';
     }
   }`,
 })
-export class SidebarComponent {}
+export class SidebarComponent {
+  @Input() modal = false;
+}

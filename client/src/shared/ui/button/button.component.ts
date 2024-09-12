@@ -5,7 +5,7 @@ import { Component, Input } from '@angular/core';
   standalone: true,
   imports: [],
   template: `
-    <button class="px-4 py-2 rounded-md">
+    <button class="px-4 py-2 rounded-md w-max">
       {{ text }}
     </button>
   `,

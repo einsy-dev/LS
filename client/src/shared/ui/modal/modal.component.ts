@@ -6,7 +6,7 @@ import { Component, EventEmitter, Output, ViewChild } from '@angular/core';
   imports: [],
   template: `
     <div
-      class="modal fixed inset-0 z-10 grid place-content-center"
+      class="modal fixed inset-0 z-10 flex"
       (click)="handleClose($event)"
     >
       <ng-content #content />

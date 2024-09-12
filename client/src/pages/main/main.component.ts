@@ -9,21 +9,24 @@ import { PostModalComponent } from './post-modal/post-modal.component';
   standalone: true,
   imports: [PostComponent, ButtonComponent, ModalComponent, PostModalComponent],
   template: ` @if (modal) {
-    <app-modal (close)="handleClick()"><app-post-modal /></app-modal>
+    <app-modal (close)="handleClick()"
+      ><app-post-modal class="self-center mx-auto"
+    /></app-modal>
     }
-    <div class="mb-4 px-[100px] flex justify-end">
+    <div class="mb-4 lg:px-[100px] flex justify-end">
       <app-button text="Новый пост" (click)="handleClick()" />
     </div>
-    <main class="flex flex-col gap-4  px-[100px]">
+    <main class="flex flex-col gap-4 lg:px-[100px]">
       <app-post />
       <app-post img="assets/err.png" />
+      <app-post />
     </main>`,
   styles: `
     
   `,
 })
 export class MainComponent {
-  modal = true;
+  modal = false;
   constructor(private router: Router) {
     this.router = router;
   }

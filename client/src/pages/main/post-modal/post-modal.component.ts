@@ -11,16 +11,11 @@ import { CarouselComponent } from '../../../shared/ui/carousel/carousel.componen
       class="w-[500px] h-[500px] rounded-md p-4 "
       (submit)="handleSubmit($event)"
     >
-      <div class="">
-        <label class="" for="title">Title</label>
-        <input id="title" type="text" />
+      <div class="h-full">
+        <textarea class="h-full"> </textarea>
       </div>
       <div class="">
-        <label class="" for="description">Description</label>
-        <textarea id="description"> </textarea>
-      </div>
-      <div class="">
-        <app-carousel />
+        <app-carousel class="mt-auto" />
         <label class="" for="image"></label>
         <input
           id="image"
@@ -31,11 +26,24 @@ import { CarouselComponent } from '../../../shared/ui/carousel/carousel.componen
           accept="image/*"
         />
       </div>
-      <app-button
+      <div class="ms-auto mt-auto" style="display: flex; flex-direction: row">
+        <app-button class="w-fit " text="Загрузить" (click)="image.click()" />
+        <app-button
+          class="w-fit "
+          text="Сохранить"
+          (click)="handleSubmit($event)"
+        />
+      </div>
+      <!-- <app-button
         class="mt-auto ms-auto"
         text="Сохранить"
         (click)="handleSubmit($event)"
       />
+      <app-button
+        class="mt-auto ms-auto"
+        text="Сохранить"
+        (click)="handleSubmit($event)"
+      /> -->
     </form>
   `,
   styles: `
