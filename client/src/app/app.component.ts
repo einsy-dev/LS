@@ -5,8 +5,6 @@ import { AccauntComponent } from '../widgets/accaunt/accaunt.component';
 import { HeaderComponent } from '../widgets/header/header.component';
 import { FooterComponent } from '../widgets/footer/footer.component';
 import { ModalComponent } from '../shared/ui/modal/modal.component';
-import { Store } from '@ngrx/store';
-import { increment } from './reducers';
 
 @Component({
   selector: 'app-root',

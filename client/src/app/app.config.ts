@@ -1,10 +1,12 @@
-import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
+import { ApplicationConfig, provideZoneChangeDetection, isDevMode } from '@angular/core';
 import { provideRouter } from '@angular/router';
 import { routes } from './app.routes';
 import { provideHttpClient } from '@angular/common/http';
 import { graphqlProvider } from './graphql.provider';
 import { provideStore } from '@ngrx/store';
-import { counterReducer } from './reducers';
+
+import { appStore } from './providers/store';
+import { provideStoreDevtools } from '@ngrx/store-devtools';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -12,6 +14,7 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     provideHttpClient(),
     graphqlProvider,
-    provideStore({ counter: counterReducer }),
-  ],
+    provideStore(appStore),
+    provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() })
+],
 };
