@@ -4,21 +4,13 @@ import { setSidebar, setHeader } from './actions';
 
 const initialState: AppState = {
   sidebar: false,
-  header: '',
+  header: 'Test',
 };
 
 const appReducer = createReducer(
   initialState,
-
-  on(setSidebar, (state, { sidebar }) => ({
-    ...state,
-    app: { ...state, sidebar },
-  })),
-
-  on(setHeader, (state, { header }) => ({
-    ...state,
-    app: { ...state, header },
-  }))
+  on(setSidebar, (state, { sidebar }) => ({ ...state, sidebar })),
+  on(setHeader, (state, { header }) => ({ ...state, header }))
 );
 
 export { appReducer };

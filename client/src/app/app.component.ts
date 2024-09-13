@@ -5,6 +5,9 @@ import { AccauntComponent } from '../widgets/accaunt/accaunt.component';
 import { HeaderComponent } from '../widgets/header/header.component';
 import { FooterComponent } from '../widgets/footer/footer.component';
 import { ModalComponent } from '../shared/ui/modal/modal.component';
+import { Store } from '@ngrx/store';
+import { CommonModule } from '@angular/common';
+import { selectHeader } from './providers/store/selectors';
 
 @Component({
   selector: 'app-root',
@@ -16,6 +19,7 @@ import { ModalComponent } from '../shared/ui/modal/modal.component';
     HeaderComponent,
     FooterComponent,
     ModalComponent,
+    CommonModule,
   ],
   template: `<app-header class="select-none" />
     <main class="container mx-auto flex gap-5 my-5">
@@ -29,6 +33,8 @@ import { ModalComponent } from '../shared/ui/modal/modal.component';
       <div class="content_container w-full mx-auto">
         <router-outlet />
       </div>
+
+      {{ header }}
     </main>
     <app-footer class="mt-auto select-none" />`,
   styles: `
@@ -43,6 +49,7 @@ import { ModalComponent } from '../shared/ui/modal/modal.component';
 export class AppComponent {
   modal = true;
   mobile = false;
+  header: string = '';
   @HostListener('window:resize', ['$event'])
   onResize(event: Event) {
     this.checkModal();
@@ -61,5 +68,11 @@ export class AppComponent {
     } else {
       this.mobile = false;
     }
+  }
+
+  constructor(private store: Store<{ app: any }>) {
+    this.store.select(selectHeader).subscribe((header: string) => {
+      this.header = header;
+    });
   }
 }
