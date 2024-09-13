@@ -1,8 +1,10 @@
 import { createSelector } from '@ngrx/store';
-import { AppStore } from './interface';
+import { AppState, AppStore } from './interface';
 
-const selectHeader = createSelector(
-  (state: AppStore) => state,
-  (state: any) => state.app.header
+const selectApp = createSelector(
+  (state: any) => state.app,
+  (state: any) => state
 );
-export { selectHeader };
+const selectHeader = createSelector(selectApp, (app: any) => app.header);
+const selectSidebar = createSelector(selectApp, (app: any) => app.sidebar);
+export { selectHeader, selectSidebar };

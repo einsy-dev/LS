@@ -1,4 +1,4 @@
-export { setSidebar, setHeader } from './actions';
+export { toggleSidebar, setHeader } from './actions';
 
 import { appReducer } from './reducers';
 import { AppStore } from './interface';

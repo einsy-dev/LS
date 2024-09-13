@@ -8,7 +8,7 @@ import { CarouselComponent } from '../../../shared/ui/carousel/carousel.componen
   imports: [ButtonComponent, CarouselComponent],
   template: `
     <form
-      class="w-[500px] h-[500px] rounded-md p-4 "
+      class="flex max-w-xl min-h-[500px] mx-10 rounded-md p-4 "
       (submit)="handleSubmit($event)"
     >
       <div class="h-full">

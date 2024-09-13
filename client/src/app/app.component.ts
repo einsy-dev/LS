@@ -1,5 +1,5 @@
 import { Component, HostListener } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
 import { SidebarComponent } from '../widgets/sidebar/sidebar.component';
 import { AccauntComponent } from '../widgets/accaunt/accaunt.component';
 import { HeaderComponent } from '../widgets/header/header.component';
@@ -7,7 +7,9 @@ import { FooterComponent } from '../widgets/footer/footer.component';
 import { ModalComponent } from '../shared/ui/modal/modal.component';
 import { Store } from '@ngrx/store';
 import { CommonModule } from '@angular/common';
-import { selectHeader } from './providers/store/selectors';
+import { selectSidebar } from './providers/store/selectors';
+import { toggleSidebar } from './providers/store';
+import { AppStore } from './providers/store/interface';
 
 @Component({
   selector: 'app-root',
@@ -33,8 +35,6 @@ import { selectHeader } from './providers/store/selectors';
       <div class="content_container w-full mx-auto">
         <router-outlet />
       </div>
-
-      {{ header }}
     </main>
     <app-footer class="mt-auto select-none" />`,
   styles: `
@@ -49,17 +49,21 @@ import { selectHeader } from './providers/store/selectors';
 export class AppComponent {
   modal = true;
   mobile = false;
-  header: string = '';
-  @HostListener('window:resize', ['$event'])
-  onResize(event: Event) {
+
+  constructor(private store: Store<AppStore>) {
+    this.store.select(selectSidebar).subscribe((state) => {
+      this.modal = state;
+    });
     this.checkModal();
   }
-  ngOnInit() {
+
+  @HostListener('window:resize')
+  onResize() {
     this.checkModal();
   }
 
   handleClick() {
-    this.modal = !this.modal;
+    this.store.dispatch(toggleSidebar());
   }
 
   checkModal() {
@@ -68,11 +72,5 @@ export class AppComponent {
     } else {
       this.mobile = false;
     }
-  }
-
-  constructor(private store: Store<{ app: any }>) {
-    this.store.select(selectHeader).subscribe((header: string) => {
-      this.header = header;
-    });
   }
 }

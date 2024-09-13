@@ -1,6 +1,6 @@
 import { createReducer, on } from '@ngrx/store';
 import { AppState } from './interface';
-import { setSidebar, setHeader } from './actions';
+import { toggleSidebar, setHeader } from './actions';
 
 const initialState: AppState = {
   sidebar: false,
@@ -9,7 +9,7 @@ const initialState: AppState = {
 
 const appReducer = createReducer(
   initialState,
-  on(setSidebar, (state, { sidebar }) => ({ ...state, sidebar })),
+  on(toggleSidebar, (state) => ({ ...state, sidebar: !state.sidebar })),
   on(setHeader, (state, { header }) => ({ ...state, header }))
 );
 
