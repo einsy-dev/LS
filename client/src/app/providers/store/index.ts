@@ -1,17 +1,10 @@
-import { ActionReducer, Action } from '@ngrx/store';
-import { TodoState, todoReducer } from './reducers';
+export { setSidebar, setHeader } from './actions';
 
-// interface for store, to store all states
-export interface AppState {
-  todo: TodoState;
-}
+import { appReducer } from './reducers';
+import { AppStore } from './interface';
 
-// interface for store, to store all reducers
-export interface AppStore {
-  todo: ActionReducer<TodoState, Action>;
-}
-
-// store, to store all reducers
-export const appStore: AppStore = {
-  todo: todoReducer,
+const appStore: AppStore = {
+  app: appReducer,
 };
+
+export { appStore };

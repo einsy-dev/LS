@@ -1,57 +1,24 @@
 import { createReducer, on } from '@ngrx/store';
-import { addTodo, deleteTodo, loadTodos, loadTodosFailure, loadTodosSuccess, updateTodo } from './actions';
+import { AppState } from './interface';
+import { setSidebar, setHeader } from './actions';
 
-interface Todo {
-  id: string;
-  title: string;
-  completed: boolean;
-}
-
-export interface TodoState {
-  todos: Todo[];
-  loading: boolean;
-  error: string;
-}
-export const initialState: TodoState = {
-  todos: [
-    {
-      id: '1',
-      title: 'Todo 1',
-      completed: false,
-    },
-  ],
-  loading: false,
-  error: '',
+const initialState: AppState = {
+  sidebar: false,
+  header: '',
 };
-export const todoReducer = createReducer(
+
+const appReducer = createReducer(
   initialState,
 
-  on(loadTodos, (state) => ({ ...state, loading: true })),
-
-  on(loadTodosSuccess, (state, { todos }) => ({
+  on(setSidebar, (state, { sidebar }) => ({
     ...state,
-    todos,
-    loading: false,
+    app: { ...state, sidebar },
   })),
 
-  on(loadTodosFailure, (state, { error }) => ({
+  on(setHeader, (state, { header }) => ({
     ...state,
-    error,
-    loading: false,
-  })),
-
-  on(addTodo, (state, { todo }) => ({
-    ...state,
-    todos: [...state.todos, todo],
-  })),
-
-  on(updateTodo, (state, { todo }) => ({
-    ...state,
-    todos: state.todos.map((t) => (t.id === todo.id ? todo : t)),
-  })),
-
-  on(deleteTodo, (state, { id }) => ({
-    ...state,
-    todos: state.todos.filter((t) => t.id !== id),
+    app: { ...state, header },
   }))
 );
+
+export { appReducer };
