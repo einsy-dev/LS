@@ -32,7 +32,7 @@ import { AppStore } from './providers/store/interface';
       } @else if (!mobile) {
       <app-sidebar class="sidebar_container min-w-40 select-none" />
       }
-      <div class="content_container w-full mx-auto">
+      <div class="content_container">
         <router-outlet />
       </div>
     </main>
@@ -43,7 +43,7 @@ import { AppStore } from './providers/store/interface';
     }
 
     .content_container {
-      width: 80%;
+      @apply container mx-auto;
     }`,
 })
 export class AppComponent {

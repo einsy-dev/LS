@@ -7,21 +7,33 @@ import { PlayerComponent } from '@widgets';
   imports: [PlayerComponent],
   template: `
     <div class="">
-      <app-player
-        class=" w-screen"
+      <video controls>
+        <source
+          src="https://cdn.pixabay.com/video/2022/10/06/133829-758327963_large.mp4"
+          type="video/mp4"
+        />
+      </video>
+      <!-- <app-player
+        class="w-full"
         [options]="{
           controls: true,
           muted: false,
-          loop: true,
-          autoplay: false,
-          sources: [{ src: 'http://localhost:3000/movie/test', type: 'video/mp4' }]
+          loop: false,
+          autoplay: true,
+          sources: [
+            {
+              src: ' https://cdn.pixabay.com/video/2019/11/24/29390-375947054_large.mp4',
+              type: 'video/mp4'
+            }
+          ]
         }"
-      ></app-player>
+      ></app-player> -->
     </div>
   `,
 })
 export class MovieComponent {
-  ngOnInit() {
-
-  }
+  ngOnInit() {}
 }
+
+// https://cdn.pixabay.com/video/2019/11/24/29390-375947054_large.mp4
+// https://cdn.pixabay.com/video/2022/10/06/133829-758327963_large.mp4

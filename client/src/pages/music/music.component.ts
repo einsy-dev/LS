@@ -1,15 +1,15 @@
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { TrackComponent } from './track/track.component';
 
 @Component({
   selector: 'app-music',
   standalone: true,
-  imports: [],
+  imports: [FormsModule, TrackComponent],
   template: `
-    <p>
-      music works!
-    </p>
-  `
+    <main>
+      <app-track />
+    </main>
+  `,
 })
-export class MusicComponent {
-
-}
+export class MusicComponent {}
