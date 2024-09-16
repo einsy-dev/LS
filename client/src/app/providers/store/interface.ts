@@ -4,6 +4,7 @@ import { Action, ActionReducer } from '@ngrx/store';
 interface AppState {
   sidebar: boolean;
   header: string;
+  audio: boolean;
 }
 // interface for store, to store all reducers
 interface AppStore {

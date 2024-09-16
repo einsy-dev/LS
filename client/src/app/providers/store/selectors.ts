@@ -7,4 +7,5 @@ const selectApp = createSelector(
 );
 const selectHeader = createSelector(selectApp, (app: any) => app.header);
 const selectSidebar = createSelector(selectApp, (app: any) => app.sidebar);
-export { selectHeader, selectSidebar };
+const selectAudio = createSelector(selectApp, (app: any) => app.audio);
+export { selectHeader, selectSidebar, selectAudio };

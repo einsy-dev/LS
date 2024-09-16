@@ -7,9 +7,11 @@ import { FooterComponent } from '../widgets/footer/footer.component';
 import { ModalComponent } from '../shared/ui/modal/modal.component';
 import { Store } from '@ngrx/store';
 import { CommonModule } from '@angular/common';
-import { selectSidebar } from './providers/store/selectors';
+import { selectAudio, selectSidebar } from './providers/store/selectors';
 import { toggleSidebar } from './providers/store';
 import { AppStore } from './providers/store/interface';
+import { AudioPlayerComponent } from '../widgets/audio.player/audio.player.component';
+import { toggleAudio } from './providers/store/actions';
 
 @Component({
   selector: 'app-root',
@@ -22,8 +24,14 @@ import { AppStore } from './providers/store/interface';
     FooterComponent,
     ModalComponent,
     CommonModule,
+    AudioPlayerComponent,
   ],
   template: `<app-header class="select-none" />
+    <app-audio-player
+      #audioRef
+      *ngIf="audio"
+      src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
+    />
     <main class="container mx-auto flex gap-5 my-5">
       @if (mobile && modal) {
       <app-modal (close)="handleClick()">
@@ -41,7 +49,6 @@ import { AppStore } from './providers/store/interface';
     .sidebar_container {
       width: 20%;
     }
-
     .content_container {
       @apply container mx-auto;
     }`,
@@ -49,10 +56,13 @@ import { AppStore } from './providers/store/interface';
 export class AppComponent {
   modal = true;
   mobile = false;
-
+  audio = false;
   constructor(private store: Store<AppStore>) {
     this.store.select(selectSidebar).subscribe((state) => {
       this.modal = state;
+    });
+    this.store.select(selectAudio).subscribe((state) => {
+      this.audio = state;
     });
     this.checkModal();
   }
