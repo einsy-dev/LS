@@ -6,11 +6,12 @@ import { Component } from '@angular/core';
   imports: [],
   template: `
     <div class="">
-      <video controls>
+      <video controls preload="metadata">
         <source
-          src="https://cdn.pixabay.com/video/2022/10/06/133829-758327963_large.mp4"
+          src="assets/video.mp4#t=5"
           type="video/mp4"
         />
+
       </video>
     </div>
   `,

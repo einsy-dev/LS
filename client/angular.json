@@ -24,6 +24,10 @@
               {
                 "glob": "**/*",
                 "input": "src/shared"
+              },
+              {
+                "glob": "**/*",
+                "input": "public"
               }
             ],
             "styles": [

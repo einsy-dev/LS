@@ -8,9 +8,13 @@ import { AudioPlayerComponent } from '../../widgets/audio.player/audio.player.co
   standalone: true,
   imports: [FormsModule, TrackComponent, AudioPlayerComponent],
   template: `
-    <main>
+    <div class="flex flex-col gap-2">
+      @for (item of arr; track $index) {
       <app-track />
-    </main>
+      }
+    </div>
   `,
 })
-export class MusicComponent {}
+export class MusicComponent {
+  arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+}

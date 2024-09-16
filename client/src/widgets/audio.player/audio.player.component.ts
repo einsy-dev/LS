@@ -8,6 +8,9 @@ import { PlayComponent } from './play/play.component';
 import { VolumeComponent } from './volume/volume.component';
 import { NextComponent } from './next/next.component';
 import { PreviousComponent } from './previous/previous.component';
+import { AppStore } from '@store';
+import { Store } from '@ngrx/store';
+import { selectAudioSrc, toggleAudio } from '@store/player';
 
 @Component({
   selector: 'app-audio-player',
@@ -24,7 +27,13 @@ import { PreviousComponent } from './previous/previous.component';
     PreviousComponent,
   ],
   template: `
-    <div class="fixed bottom-0 inset-x-0 min-h-[100px] bg-orange-300">
+    <div class="fixed bottom-0 inset-x-0 min-h-[100px] bg-orange-300 z-50">
+      <div
+        class="absolute right-0 top-0 p-2 me-4 cursor-pointer"
+        (click)="handleClose()"
+      >
+        &#10005;
+      </div>
       <audio #audio preload>
         <source src="{{ src }}" type="audio/mpeg" />
         Your browser does not support the audio element.
@@ -52,6 +61,15 @@ import { PreviousComponent } from './previous/previous.component';
   styles: ``,
 })
 export class AudioPlayerComponent {
-  @Input({ required: true }) src!: string;
   @ViewChild('audio', { static: true }) audioRef!: ElementRef<HTMLAudioElement>;
+  src: string = '';
+  constructor(private store: Store<AppStore>) {
+    this.store.select(selectAudioSrc).subscribe((state) => {
+      this.src = state;
+    });
+  }
+
+  handleClose() {
+    this.store.dispatch(toggleAudio());
+  }
 }

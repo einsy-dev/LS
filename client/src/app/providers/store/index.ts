@@ -1,10 +1,11 @@
-export { toggleSidebar, setHeader } from './actions';
-
-import { appReducer } from './reducers';
 import { AppStore } from './interface';
+import { appReducer } from './app';
+import { playerReducer } from './player';
+import { profileReducer } from './profile';
 
 const appStore: AppStore = {
   app: appReducer,
+  player: playerReducer,
 };
 
-export { appStore };
+export { appStore, type AppStore };

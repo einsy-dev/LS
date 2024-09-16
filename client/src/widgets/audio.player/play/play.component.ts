@@ -15,7 +15,7 @@ import { BaseButtonComponent } from '../base.button/base.button.component';
     @if (audio.nativeElement.paused) {
     <app-play-icon class="fill-{{ fill }} hover:fill-{{ hoverFill }}" />
     } @else {
-    <app-pause-icon />
+    <app-pause-icon class="fill-{{ fill }} hover:fill-{{ hoverFill }}" />
     }
   </div>`,
   styles: ``,

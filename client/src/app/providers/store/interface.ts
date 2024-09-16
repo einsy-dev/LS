@@ -1,14 +1,10 @@
 import { Action, ActionReducer } from '@ngrx/store';
+import { AppState } from './app/interface';
+import { PlayerState } from './player/interface';
 
-// interface for store app
-interface AppState {
-  sidebar: boolean;
-  header: string;
-  audio: boolean;
-}
-// interface for store, to store all reducers
 interface AppStore {
   app: ActionReducer<AppState, Action>;
+  player: ActionReducer<PlayerState, Action>;
 }
 
-export type { AppState, AppStore };
+export type { AppStore };

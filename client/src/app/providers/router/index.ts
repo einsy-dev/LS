@@ -9,7 +9,7 @@ import {
   GamesComponent,
   MessengerComponent,
   ProfileComponent,
-} from '../pages';
+} from '../../../pages';
 
 export const routes: Routes = [
   { path: '', component: MainComponent },

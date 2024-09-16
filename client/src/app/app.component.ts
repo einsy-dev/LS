@@ -1,17 +1,19 @@
 import { Component, HostListener } from '@angular/core';
-import { Router, RouterOutlet } from '@angular/router';
-import { SidebarComponent } from '../widgets/sidebar/sidebar.component';
-import { AccauntComponent } from '../widgets/accaunt/accaunt.component';
-import { HeaderComponent } from '../widgets/header/header.component';
-import { FooterComponent } from '../widgets/footer/footer.component';
-import { ModalComponent } from '../shared/ui/modal/modal.component';
-import { Store } from '@ngrx/store';
 import { CommonModule } from '@angular/common';
-import { selectAudio, selectSidebar } from './providers/store/selectors';
-import { toggleSidebar } from './providers/store';
-import { AppStore } from './providers/store/interface';
-import { AudioPlayerComponent } from '../widgets/audio.player/audio.player.component';
-import { toggleAudio } from './providers/store/actions';
+import { RouterOutlet } from '@angular/router';
+import { Store } from '@ngrx/store';
+import {
+  SidebarComponent,
+  AccauntComponent,
+  HeaderComponent,
+  FooterComponent,
+  AudioPlayerComponent,
+} from '@widgets';
+
+import { ModalComponent } from '@shared/ui';
+import { AppStore } from '@store';
+import { selectSidebar, toggleSidebar } from '@store/app';
+import { selectAudio } from '@store/player';
 
 @Component({
   selector: 'app-root',
@@ -27,12 +29,8 @@ import { toggleAudio } from './providers/store/actions';
     AudioPlayerComponent,
   ],
   template: `<app-header class="select-none" />
-    <app-audio-player
-      #audioRef
-      *ngIf="audio"
-      src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
-    />
-    <main class="container mx-auto flex gap-5 my-5">
+    <app-audio-player #audioRef *ngIf="audio" />
+    <main class="container mx-auto flex gap-10 my-5">
       @if (mobile && modal) {
       <app-modal (close)="handleClick()">
         <app-sidebar class="bg-white w-3/4 p-5" [modal]="true" />
@@ -50,7 +48,7 @@ import { toggleAudio } from './providers/store/actions';
       width: 20%;
     }
     .content_container {
-      @apply container mx-auto;
+      @apply container mx-auto ;
     }`,
 })
 export class AppComponent {

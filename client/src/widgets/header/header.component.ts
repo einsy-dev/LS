@@ -1,8 +1,8 @@
 import { Component, HostListener } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { AppStore } from '../../app/providers/store/interface';
-import { toggleSidebar } from '../../app/providers/store';
+import { AppStore } from '@store';
+import { toggleSidebar } from '@store/app';
 import { ButtonComponent } from '../../shared/ui/button/button.component';
 import { MenuComponent } from './assets/menu.component';
 import { CommonModule } from '@angular/common';

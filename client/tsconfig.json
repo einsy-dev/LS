@@ -20,8 +20,17 @@
     "lib": ["ES2022", "dom", "esnext.asynciterable"],
     "paths": {
       "@widgets": ["./src/widgets"],
+      "@widgets/*": ["./src/widgets/*"],
       "@shared": ["./src/shared"],
-      "@shared/*": ["./src/shared/*"]
+      "@shared/*": ["./src/shared/*"],
+      "@app": ["./src/app"],
+      "@app/*": ["./src/app/*"],
+      "@store": ["./src/app/providers/store"],
+      "@store/*": ["./src/app/providers/store/*"],
+      "@router": ["./src/app/providers/router"],
+      "@router/*": ["./src/app/providers/router/*"],
+      "@graphql": ["./src/app/providers/graphql"],
+      "@graphql/*": ["./src/app/providers/graphql/*"]
     },
     "allowSyntheticDefaultImports": true
   },
