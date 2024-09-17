@@ -5,11 +5,8 @@ import { Component, EventEmitter, Output, ViewChild } from '@angular/core';
   standalone: true,
   imports: [],
   template: `
-    <div
-      class="modal fixed inset-0 z-10 flex"
-      (click)="handleClose($event)"
-    >
-      <ng-content #content />
+    <div class="modal fixed inset-0 z-10 flex" (click)="handleClose($event)">
+      <ng-content />
     </div>
   `,
   styles: `
@@ -19,7 +16,6 @@ import { Component, EventEmitter, Output, ViewChild } from '@angular/core';
 })
 export class ModalComponent {
   @Output() close = new EventEmitter();
-  @ViewChild('content') content!: any;
 
   handleClose(e: Event) {
     if (e.target !== e.currentTarget) {

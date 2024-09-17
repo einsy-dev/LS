@@ -1,12 +1,13 @@
 import { createReducer, on } from '@ngrx/store';
 import { Profile } from '../../../../entities/profile';
 import { setProfile } from './actions';
+import { Role } from '../../../../entities/interface';
 
-const initialState = new Profile({});
+const initialState = new Profile({ role: Role.GUEST });
 
 const profileReducer = createReducer(
   initialState,
-  on(setProfile, (state, { profile }) => new Profile(profile))
+  on(setProfile, (_, { profile }) => new Profile(profile))
 );
 
 export { profileReducer };

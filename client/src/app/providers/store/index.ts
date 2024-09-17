@@ -6,6 +6,7 @@ import { profileReducer } from './profile';
 const appStore: AppStore = {
   app: appReducer,
   player: playerReducer,
+  profile: profileReducer,
 };
 
 export { appStore, type AppStore };

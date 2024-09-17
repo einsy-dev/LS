@@ -1,11 +1,11 @@
 import { Role } from '../interface';
+import { ProfileI } from './interface';
 
 class Profile {
   #role: string = Role.GUEST;
-  constructor(data: any) {
+  constructor(data: ProfileI) {
     const { role, ...rest } = data;
     this.#role = role;
-    console.log(this.#role);
     Object.assign(this, rest);
   }
 
@@ -14,6 +14,4 @@ class Profile {
   }
 }
 
-const ProfileI = typeof Profile;
-
-export { Profile, type ProfileI };
+export { Profile };

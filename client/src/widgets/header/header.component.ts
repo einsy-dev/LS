@@ -48,6 +48,7 @@ export class HeaderComponent {
   menu = false;
   constructor(private store: Store<AppStore>) {
     this.store = store;
+    this.checkMenu();
   }
   handleClick() {
     this.store.dispatch(toggleSidebar());
@@ -55,6 +56,10 @@ export class HeaderComponent {
 
   @HostListener('window:resize', ['$event'])
   onResize() {
+    this.checkMenu();
+  }
+
+  checkMenu() {
     if (window.innerWidth > 1024) {
       this.menu = false;
     } else {
