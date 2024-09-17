@@ -6,36 +6,35 @@ import { RouterLink } from '@angular/router';
   standalone: true,
   imports: [RouterLink],
   template: `
-    <div
-      class="card flex border rounded-md cursor-pointer hover:scale-105 transition duration-200 h-[100px]"
-      [routerLink]="link"
+    <article
+      class="border-solid border-2 border-sky-500 rounded flex relative overflow-hidden"
+      [routerLink]="to"
     >
-      <img srcset="{{ img }}, assets/err.png" alt="err" class="w-[100px]" />
-      <div class="body relative w-full">
-        <div class="title">{{ title }}</div>
-        <div class="descriptiot">{{ description }}</div>
+      <div class="aspect-2/3 flex items-center bg-[#E1EAF1]">
+        <img srcset="{{ img }}, assets/err.png" alt="" />
       </div>
-    </div>
+      <div
+        class="description w-full absolute bottom-0 border border-solid text-center translate-y-full transition duration-200 py-4"
+      >
+        <h3 class="">{{ name }}</h3>
+        <p class="">{{ year }} ( {{ country }} )</p>
+      </div>
+    </article>
   `,
   styles: `
-  .body {
-    @apply m-1
-  }
-  .title {
-    @apply text-lg 
-  }
-  .descriptiot {
-    @apply text-xs
-  }
- `,
+    article {
+      &:hover {
+        .description {
+          @apply translate-y-0;
+        }
+      }
+    }
+  `,
 })
 export class CardComponent {
-  @Input() img: string = '';
-  @Input() title: string = '';
-  @Input() description: string = '';
-  @Input() link: string = '';
-
-  constructor() {
-    this.description = this.description.substring(0, 80) + ' ...';
-  }
+  @Input() to?: string;
+  @Input() img?: string;
+  @Input() name?: string;
+  @Input() year?: string;
+  @Input() country?: string;
 }

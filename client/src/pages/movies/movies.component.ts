@@ -1,16 +1,16 @@
 import { Component, Input } from '@angular/core';
-import { MovieCardComponent } from './card/movie.card.component';
-import { FilterComponent } from './filter/filter.component';
-import { PaginationComponent } from '../../widgets/pagination/pagination.component';
+import { FilterComponent } from '@features/filter/filter.component';
+import { PaginationComponent } from '@widgets/pagination/pagination.component';
+import { CardComponent } from '@shared/ui/card/card.component';
 
 @Component({
   standalone: true,
-  imports: [MovieCardComponent, FilterComponent, PaginationComponent],
+  imports: [FilterComponent, PaginationComponent, CardComponent],
   template: `
     <app-filter />
     <section class="grid gap-5 p-4">
       @for (item of items; track $index) {
-      <app-movie-card
+      <app-card
         to="/movie/{{ item.id }}"
         img="{{ item.img }}"
         name="{{ item.name }}"

@@ -21,6 +21,8 @@
     "paths": {
       "@widgets": ["./src/widgets"],
       "@widgets/*": ["./src/widgets/*"],
+      "@features": ["./src/features"],
+      "@features/*": ["./src/features/*"],
       "@shared": ["./src/shared"],
       "@shared/*": ["./src/shared/*"],
       "@app": ["./src/app"],

@@ -44,7 +44,7 @@ import { CommonModule } from '@angular/common';
 export class AccauntComponent {
   @Input() class = '';
   username = 'Алексей Алексеевич Толиков';
-  modal = true;
+  modal = false;
   constructor() {
     this.username =
       this.username.split(' ')[0] + ' ' + this.username.split(' ')[1];

@@ -1,12 +1,12 @@
 import { Component, Input } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { AccauntComponent } from '../accaunt/accaunt.component';
-import { CardComponent } from '@shared/ui/card/card.component';
+import { CardUpdateComponent } from '@shared/ui';
 
 @Component({
   selector: 'app-sidebar',
   standalone: true,
-  imports: [RouterLink, AccauntComponent, CardComponent],
+  imports: [RouterLink, AccauntComponent, CardUpdateComponent],
   template: `
     <div class=" flex flex-col gap-6">
       <app-accaunt />
@@ -24,9 +24,9 @@ import { CardComponent } from '@shared/ui/card/card.component';
       @if (!modal) {
       <div class="flex flex-col gap-2">
         <div class="w-full text-center">12/02/2024</div>
-        <app-card title="Uncharted" description="Uncharted movie" />
-        <app-card title="Newline" description="Newline movie" />
-        <app-card title="Unstoppable" description="Unstoppable movie" />
+        <app-card-update title="Uncharted" description="Uncharted movie" />
+        <app-card-update title="Newline" description="Newline movie" />
+        <app-card-update title="Unstoppable" description="Unstoppable movie" />
       </div>
       }
     </div>
