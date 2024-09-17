@@ -1,11 +1,11 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-button',
   standalone: true,
   imports: [],
   template: `
-    <button class="px-4 py-2 rounded-md w-max">
+    <button class="px-4 py-2 rounded-md w-max" (click)="handleClick()">
       {{ text }}
     </button>
   `,
@@ -19,4 +19,9 @@ import { Component, Input } from '@angular/core';
 })
 export class ButtonComponent {
   @Input({ required: true }) text!: string;
+  @Output() clickBtn = new EventEmitter();
+
+  handleClick() {
+    this.clickBtn.emit();
+  }
 }
