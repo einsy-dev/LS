@@ -64,6 +64,5 @@ export class AccauntComponent {
   }
   handleClick() {
     this.modal = true;
-    console.log(this.profile?.role);
   }
 }

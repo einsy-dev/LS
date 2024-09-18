@@ -19,7 +19,7 @@ import { ButtonComponent } from '../../shared/ui/button/button.component';
     <app-modal (close)="handleClose()">
       <form [formGroup]="loginForm" class="mx-auto self-center min-h-max">
         <div class="text-center border-b-2 ">
-          {{ login ? 'Вход'.toUpperCase() : 'Регистрация'.toUpperCase() }}
+          {{ !login ? 'Вход'.toUpperCase() : 'Регистрация'.toUpperCase() }}
         </div>
         <app-input
           *ngIf="login"
